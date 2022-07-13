@@ -1,10 +1,9 @@
 # JSON-Power-DB-Project
+The JSONPowerDB database is a high-performance, lightweight, ajax enabled, serverless, simple-to-use, real-time database. Database applications can be developed quickly and easily without server-side programming or scripting.
 
-JSONPowerDB is a High Performance, Light Weight, Ajax Enabled, Serverless, Simple to Use, Real-time Database. Easy and fast to develop database applications without using any server side programming / scripting or without installing any kind of database.
+In essence, it's a database server with REST API services that are developer friendly.
 
-It is basically a Database Server with Developer friendly REST API services.
-
-JPDB has ready to use API for Json document DB, RDBMS, Key-value DB, GeoSpatial DB and Time Series DB functionality. JPDB supports and advocates for true serverless and pluggable API development.
+JPDB has a ready-to-use API for JSON document DB, RDBMS, Key-value DB, GeoSpatial DB and Time Series DB functionality. JPDB supports and advocates for true serverless and pluggable API development.
 
 Documentation Link --> https://login2explore.com/jpdb/docs.html#jpdb-command-request
 
@@ -35,11 +34,9 @@ Documentation Link --> https://login2explore.com/jpdb/docs.html#jpdb-command-req
 In this project, I create 6 methods to play with JSONPowerDB.
 
 1. GET ALL IN DB --> Get all records in DB
-2. GET BY KEY --> Get your desired data by inputting the key name
-3. GET BY RECORD --> Get data by putting the record number
-4. PUT METHOD --> Insert single record to the DB
-5. UPDATE IN DB --> Update the data in DB
-6. REMOVE IN DB --> Remove the data in DB
+2. PUT METHOD --> Insert single record to the DB
+3. UPDATE IN DB --> Update the data in DB
+4. REMOVE IN DB --> Remove the data in DB
 
 ### GET ALL IN DB -->
 
