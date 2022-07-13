@@ -1,0 +1,94 @@
+<html lang="en">
+
+<head>
+    
+    <title>UPDATE in PowerDB</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://login2explore.com/jpdb/resources/js/0.0.3/jpdb-commons.js"></script>
+
+</head>
+
+<body>
+    <div class="container">
+        <h2>Update Records in DBs with UPDATE Command</h2>
+        <hr>
+        <form id="empForm" method="post">
+            <div class="form-group">
+                <input type="text" class="form-control" name="empId" id="db"
+                    placeholder="Enter existing DB name or to create a new DB with new name" required>
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" id="rel"
+                    placeholder="Enter existing relation name or to create a new relation with new name" name="empName">
+            </div>
+            <br>
+            <h4>Employee Details: </h4>
+
+            <div class="form-group">
+                <input type="text" class="form-control" id="record" placeholder="Enter record number" name="rec_number">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" id="key"
+                    placeholder="Enter particular key of the record want to change" name="key_record">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" id="value"
+                    placeholder="Enter the value of the key want to update" name="empName">
+            </div>
+            <input type="button" class="btn btn-primary" id="empSave" value="UPDATE" onclick="updateDb();">
+        </form>
+
+        <h4>Your response message here:</h4>
+        <textarea name="updateDb" id="updateTxtArea" cols="80" rows="10" readonly></textarea>
+
+    </div>
+    <script>
+
+        function updateDb() {
+
+            let db = $("#db").val();
+            let rel = $("#rel").val();
+            let record = $("#record").val();
+            let key = $("#key").val();
+            let value = $("#value").val();
+
+            let data = updata(db, rel, record, key, value);
+            console.log(data)
+            jQuery.ajaxSetup({ async: false });
+            var resultObj = executeCommandAtGivenBaseUrl(data, "http://api.login2explore.com:5577", "/api/iml");
+            document.getElementById("updateTxtArea").innerText = JSON.stringify(resultObj);
+            console.log(resultObj);
+            jQuery.ajaxSetup({ async: true });
+
+            $("#db").val("");
+            $("#rel").val("");
+            $("#record").val("");
+            $("#key").val("");
+            $("#value").val("");
+        }
+
+        function updata(db, rel, record, key, value) {
+            let udata = `
+                    {
+                        "token": "90939226|-31949288247042234|90940026",
+                        "cmd": "UPDATE",
+                        "dbName": "${db}",
+                        "rel": "${rel}",
+                        "jsonStr": {
+                        "${record}":{
+                            "${key}": "${value}"
+                        }
+                        }
+                    }
+                `;
+            return udata;
+        }
+
+    </script>
+</body>
+
+</html>

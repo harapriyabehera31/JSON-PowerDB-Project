@@ -1,0 +1,107 @@
+<html lang="en">
+
+<head>
+    <title>CREATE</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://login2explore.com/jpdb/resources/js/0.0.3/jpdb-commons.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <h2>CREATE A DATABASE</h2>
+        <br>
+        <br>
+        <h4>Enter the database name</h4>
+        <input style="width: 100%;display:'block';" type="text" name="database_name" id="db_name"
+            placeholder="Enter your database name to retrive relations">
+        <br>
+        <br>
+        <h4>Enter the relation name</h4>
+        <input style="width: 100%;display:'block';" type="text" name="relation_name" id="rel_name"
+            placeholder="Enter your relation name ">
+        <br>
+        <br>
+        <h4>Enter Emp_Id</h4>
+        <input style="width: 100%;display:'block';" type="text" name="emp_id" id="empid"
+            placeholder="Enter Employee Id">
+        <br>
+        <br>
+        <h4>Enter Emp_Name</h4>
+        <input style="width: 100%;display:'block';" type="text" name="emp_name" id="empname"
+            placeholder="Enter Employee Name">
+        <br>
+        <br>
+        <h4>Enter Emp_Email</h4>
+        <input style="width: 100%;display:'block';" type="text" name="emp_id" id="empmail"
+            placeholder="Enter Employee Email">
+        <br>
+        <br>
+        <h4>Enter Emp_Mobile_No.</h4>
+        <input style="width: 100%;display:'block';" type="text" name="emp_mobileno." id="empmobileno"
+            placeholder="Enter Employee phone number">
+        <br>
+        <br>
+        <h4>Created Data Is :</h4>
+        <textarea name="txtarea" id="getAllData" cols="60" rows="5" readonly></textarea>
+
+        <br>
+        <br>
+
+        <input type="button" value="Get All Data" id="getData" onclick="createdb ()">
+
+
+    </div>
+    <script>
+
+        function createdb() {
+
+            let db_name = $('#db_name').val();
+            let rel_name = $('#rel_name').val();
+            let Emp_Id = $('#empid').val();
+            let Emp_Name = $('#empname').val();
+            let Emp_Email = $('#empmail').val();
+            let Emp_Mobile_No = $('#empmobileno').val();
+
+            let jsn_rel = PUT(db_name, rel_name, Emp_Id, Emp_Name, Emp_Email, Emp_Mobile_No);
+            jQuery.ajaxSetup({ async: false });
+            var resultObj = executeCommandAtGivenBaseUrl(jsn_rel, "http://api.login2explore.com:5577", "/api/iml");
+            console.log(resultObj)
+
+            // let str = JSON.stringify(resultObj)
+            // console.log(str)
+            // console.log(JSON.parse(str))
+
+            document.getElementById("getAllData").innerText = JSON.stringify(resultObj);
+            jQuery.ajaxSetup({ async: true });
+
+           
+        }
+
+        function PUT(dbname, relname, id, empname, empemail, empnumber) {
+            console.log('hello')
+            let jsn = `
+                {
+                    "token": "90939226|-31949288247042234|90940026",
+                    "cmd": "PUT",
+                    "dbName": "${dbname}",
+                    "rel": "${relname}",
+                    "jsonStr": {
+                        "id": "${id}",
+                        "name": "${empname}",
+                        "email": "${empemail}",
+                        "mobileno": "${empnumber}"
+                    }
+                    
+                }
+            `;
+            return jsn;
+        }
+
+    </script>
+</body>
+
+</html>
