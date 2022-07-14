@@ -47,14 +47,10 @@ In this project, I create 6 methods to play with JSONPowerDB.
 
 ```
 {
-    "token": "608862679|6881615563234464505|608862542",
-    "dbName": "INDORE-TERAPANTH-DIRECTORY",
+    "token": "90939226|-31949288247042234|90940026",
     "cmd": "GET_ALL",
-    "rel": "MEMBERS-FAMILY",
-    "pageNo": 1,
-    "pageSize": 5,
-    "createTime": true,
-    "updateTime": true
+    "dbName": "Employee",
+    "rel": "Emp-Rel"
 }
 ```
 
@@ -62,7 +58,7 @@ In response, it will give you all the records in the database of particular rela
 
 ```
 {
-  "data": "{\"file_status\":\"OK\",\"total_records\":4,\"json_records\":[{\"rec_no\":1,\"created\":1656865732294,\"record\":{\"password\":\"1234\",\"name\":\"Harsh\",\"id\":\"3\",\"mobileno\":\"9967025671\",\"email\":\"harsh@gmail.com\",\"mark\":100},\"updated\":1656865732294},{\"rec_no\":2,\"created\":1656866471493,\"record\":{\"name\":\"Indrajit Sahu\",\"id\":\"2\",\"mobileno\":\"1064728030\",\"email\":\"ind7@gmail.com\"},\"updated\":1656866471493},{\"rec_no\":3,\"created\":1656866541343,\"record\":null,\"updated\":1656866541343},{\"rec_no\":4,\"created\":1656866688123,\"record\":null,\"updated\":1656868402835}],\"total_pages\":1,\"current_page\":1}",
+  "data": "{\"file_status\":\"OK\",\"total_records\":5,\"json_records\":[{\"rec_no\":1,\"record\":{\"name\":\"Harapriya Behera\",\"id\":\"001\",\"mobileno\":\"7654568764\",\"email\":\"harapriya@gmail.com\"}},{\"rec_no\":2,\"record\":{\"name\":\"Soumaya\",\"id\":\"002\",\"mobileno\":\"5679876458\",\"email\":\"smruti@gmail.com\"}},{\"rec_no\":3,\"record\":null},{\"rec_no\":4,\"record\":{\"name\":\"Priti Bhoi\",\"id\":\"004\",\"mobileno\":\"8764569876\",\"email\":\"priti@gmail.com\"}},{\"rec_no\":5,\"record\":{\"name\":\"Priti Bhoi\",\"id\":\"004\",\"mobileno\":\"8764569876\",\"email\":\"priti@gmail.com\"}}],\"total_pages\":1,\"current_page\":1}",
   "message": "DATA RETRIEVED FROM PI",
   "status": 200
 }
